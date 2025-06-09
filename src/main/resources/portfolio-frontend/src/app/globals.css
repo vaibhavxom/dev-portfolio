@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-light: linear-gradient(135deg, #f0f4ff 0%, #d9e4ff 100%);
+  --background-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --foreground: #171717;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Default (light mode) background with gradient */
+body {
+  background: var(--background-light);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  min-height: 100vh;
+}
+
+/* Dark mode background with gradient */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--background-dark);
+    color: #ededed;
+  }
+}
