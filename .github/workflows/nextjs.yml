@@ -17,9 +17,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src/main/resources/portfolio-frontend
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -31,13 +34,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build static site
-        run: npm run build
+      - name: Build and export Next.js site
+        run: |
+          npm run build
+          npm run export
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './out'
+          path: src/main/resources/portfolio-frontend/out
 
   deploy:
     needs: build
