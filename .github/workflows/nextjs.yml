@@ -1,8 +1,9 @@
-name: Deploy Next.js site to GitHub Pages
+name: Deploy Next.js to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -22,7 +23,7 @@ jobs:
         working-directory: src/main/resources/portfolio-frontend
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -34,12 +35,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build and export Next.js site
+      - name: Build and export Next.js
         run: |
           npm run build
           npm run export
 
-      - name: Upload artifact
+      - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: src/main/resources/portfolio-frontend/out
