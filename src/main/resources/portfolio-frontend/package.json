@@ -6,10 +6,9 @@
   "scripts": {
   "dev": "next dev --turbopack",
   "build": "next build",
-  "export": "next export",
   "start": "serve out",
   "lint": "next lint",
-  "deploy": "npm run build && npm run export && gh-pages -d out"
+  "deploy": "npm run build && npm run export"
 },
   "dependencies": {
     "axios": "^1.9.0",
