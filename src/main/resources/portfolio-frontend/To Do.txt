@@ -87,9 +87,5 @@ Performance & Polish
  Implement analytics tracking
  Add a contact form (instead of just email)
 
-📱 Quick Wins (Can do today)
 
- Fix the resume download link (currently shows as relative path)
- Add social media icons
- Improve the hero section call-to-action
  Add a footer with copyright and links

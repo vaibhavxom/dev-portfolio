@@ -1,9 +1,21 @@
 'use client';
 
-import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
 
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef(null);
+  const iframeRef = useRef(null);
+
+  const handleIframeLoad = () => {
+    if (formRef.current) {
+      formRef.current.reset();
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 4000);
+    }
+  };
+
   return (
     <motion.section
       role="region"
@@ -12,46 +24,97 @@ export default function Contact() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="py-16 px-6 bg-gray-900 text-white text-center"
+      className="py-20 px-6 bg-gray-900 text-white text-center"
     >
       <h2
         id="contact-heading"
-        className="text-3xl font-extrabold mb-8 tracking-wide"
+        className="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight"
       >
-        Let's Connect
+        Let’s Connect
       </h2>
 
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-8 text-lg max-w-md mx-auto">
-        {/* Email Contact */}
-        <a
-          href="mailto:rushimithagare02@gmail.com"
-          className="flex items-center gap-3 text-gray-200 hover:text-red-400 focus:outline-none focus:ring-2 focus:ring-red-400 rounded transition-colors"
-          aria-label="Send email to Rushikesh Mithagare"
-        >
-          <FaEnvelope
-            className="text-red-400 w-6 h-6 flex-shrink-0"
-            aria-hidden="true"
-          />
-          <span className="underline decoration-red-400">rushimithagare02@gmail.com</span>
-        </a>
+      <p className="text-gray-400 text-lg mb-12 max-w-xl mx-auto">
+        Got a project in mind or just want to say hello? Drop a message below.
+      </p>
 
-        {/* LinkedIn Contact */}
-        <a
-          href="https://www.linkedin.com/in/rushikesh-mithagare-639861178"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 text-gray-200 hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors"
-          aria-label="Visit LinkedIn profile of Rushikesh Mithagare"
-        >
-          <FaLinkedin
-            className="text-blue-400 w-6 h-6 flex-shrink-0"
-            aria-hidden="true"
+      {/* Invisible iframe to avoid redirect */}
+      <iframe
+        name="hidden_iframe"
+        className="hidden"
+        ref={iframeRef}
+        onLoad={handleIframeLoad}
+      />
+
+      {/* FormSubmit.co integration */}
+      <form
+        ref={formRef}
+        action="https://formsubmit.co/rushimithagare02@gmail.com"
+        method="POST"
+        target="hidden_iframe"
+        className="max-w-xl mx-auto space-y-6 text-left"
+      >
+        <input type="text" name="_honey" style={{ display: 'none' }} />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <div>
+          <label htmlFor="name" className="block mb-1 text-gray-300 font-medium">
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            className="w-full px-4 py-3 rounded-md bg-gray-800 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+            placeholder="Your full name"
           />
-          <span className="underline decoration-blue-400">
-            linkedin.com/in/rushikesh-mithagare
-          </span>
-        </a>
-      </div>
+        </div>
+
+        <div>
+          <label htmlFor="email" className="block mb-1 text-gray-300 font-medium">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            className="w-full px-4 py-3 rounded-md bg-gray-800 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="message" className="block mb-1 text-gray-300 font-medium">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={5}
+            required
+            className="w-full px-4 py-3 rounded-md bg-gray-800 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
+            placeholder="What would you like to discuss?"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-blue-600 hover:bg-blue-700 transition-colors duration-300 text-white font-semibold py-3 rounded-md shadow-lg"
+        >
+          Send Message
+        </button>
+
+        {submitted && (
+          <motion.p
+            className="text-green-400 mt-4 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            ✅ Thank you! Your message has been sent.
+          </motion.p>
+        )}
+      </form>
     </motion.section>
   );
 }
