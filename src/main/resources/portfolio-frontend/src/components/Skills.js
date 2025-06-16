@@ -175,11 +175,11 @@ export default function Skills() {
     : skills.filter(skill => skill.category === activeFilter);
 
   return (
-    <section className="py-16 bg-gray-900 text-white overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-30">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-green-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse delay-1000"></div>
+    <section className="py-20 bg-gray-950 text-white relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-purple-600 rounded-full filter blur-3xl animate-pulse" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl animate-pulse delay-1000" />
       </div>
 
       <div className="relative z-10">

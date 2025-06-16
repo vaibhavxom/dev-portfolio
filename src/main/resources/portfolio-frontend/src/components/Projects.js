@@ -225,10 +225,14 @@ export default function Projects() {
   }
 
   return (
-    <section 
-      id="projects"
-      className="py-16 px-4 sm:px-6 md:px-10 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-neutral-900 dark:to-neutral-800 transition-colors duration-500"
-    >
+    <section
+    id ="Projects"
+     className="py-20 bg-gray-950 text-white relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-purple-600 rounded-full filter blur-3xl animate-pulse" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl animate-pulse delay-1000" />
+      </div>
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

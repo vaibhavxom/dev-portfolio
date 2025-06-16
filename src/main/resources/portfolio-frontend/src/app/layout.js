@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Head from "next/head";
 
 // Google Fonts
 const geistSans = Geist({
@@ -11,7 +12,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// SEO + Social Metadata
+// Dynamic base path (works for localhost and GitHub Pages)
+const basePath =
+  process.env.NODE_ENV === "production" ? "/dev-portfolio" : "";
+
+// SEO Metadata (used by Next.js App Router)
 export const metadata = {
   title: "Rushikesh Mithagare | Full Stack Developer",
   description:
@@ -41,7 +46,7 @@ export const metadata = {
     siteName: "Rushikesh Mithagare Portfolio",
     images: [
       {
-        url: "/og-image.png", // Recommended: 1200x630 preview image in /public
+        url: `${basePath}/og-image.png`, // Updated for subpath
         width: 1200,
         height: 630,
         alt: "Rushikesh Mithagare Portfolio Screenshot",
@@ -54,27 +59,33 @@ export const metadata = {
     title: "Rushikesh Mithagare | Full Stack Developer",
     description:
       "Java | Spring Boot | Python | Cloud | DevOps | Problem Solver. Explore my work and connect.",
-    images: ["/og-image.png"],
+    images: [`${basePath}/og-image.png`],
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: `${basePath}/favicon.ico`,
+    shortcut: `${basePath}/favicon.ico`,
+    apple: `${basePath}/apple-touch-icon.png`,
   },
 };
 
-// Root layout
+// Root Layout
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        {/* Icons */}
+        <link rel="icon" href={`${basePath}/favicon.ico`} sizes="any" />
+        <link
+          rel="apple-touch-icon"
+          href={`${basePath}/apple-touch-icon.png`}
+        />
+
+        {/* SEO Tags */}
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Rushikesh Mithagare" />
         <link
           rel="canonical"
-          href="https://vaibhavxom.github.io/dev-portfolio"
+          href={`https://vaibhavxom.github.io${basePath}`}
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>

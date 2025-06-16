@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section
       aria-label="Hero section"
-      className="bg-gray-900 text-white min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 md:px-8 lg:px-10 py-28 text-center max-w-4xl mx-auto relative"
+      className="bg-gray-900 text-white min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 md:px-8 lg:px-10 py-20 text-center max-w-4xl mx-auto relative"
     >
       <motion.h1
         className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-8 tracking-tight leading-tight"
