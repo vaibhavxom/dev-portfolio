@@ -126,15 +126,19 @@ export default function Hero() {
           </svg>
         </a>
         
-        <a
-          href="mailto:rushimithagare02@gmail.com"
-          className="text-gray-400 hover:text-green-500 transition-colors duration-300 transform hover:scale-110"
-          aria-label="Email Contact"
+       <a
+          href="https://x.com/rushimithagare"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110"
+          aria-label="Twitter (X) Profile"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          <svg className="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M714.507 512.742L1154.3 0H1050.6L669.299 451.019L370.378 0H0L461.898 681.369L0 1227H103.698L510.552 742.348L829.622 1227H1200L714.507 512.742ZM561.997 682.107L520.15 621.857L163.099 81.8569H326.782L628.497 541.847L670.344 602.097L1046.9 1145.14H883.22L561.997 682.107Z" />
           </svg>
         </a>
+
+
       </motion.div>
 
       {/* Scroll Indicator */}
