@@ -10,6 +10,10 @@ const nextConfig = {
     unoptimized: true, // ✅ required for static HTML export
   },
   trailingSlash: true, // ✅ ensures static routing on GitHub Pages works correctly
+    env: {
+    NEXT_PUBLIC_JSONBIN_API_KEY: process.env.JSONBIN_API_KEY,
+    NEXT_PUBLIC_JSONBIN_BIN_ID: process.env.JSONBIN_BIN_ID,
+  },
 };
 
 module.exports = nextConfig;
