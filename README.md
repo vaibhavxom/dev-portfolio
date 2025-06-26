@@ -22,7 +22,7 @@ A full stack portfolio website built using **React (Frontend)** and **Spring Boo
 | Email      | Gmail SMTP via JavaMailSender |
 | Database   | PostgreSQL (optional for storing messages) |
 | Deployment | GitHub Pages (Frontend), AWS EB / Render (Backend) |
-| VisitCount | jsonbin.io          |
+| Visitor Counter | [jsonbin.io](https://jsonbin.io/app/bins) to view visitor on dashboard          |
 
 ---
 
