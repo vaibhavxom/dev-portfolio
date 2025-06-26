@@ -21,9 +21,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env: 
-      API_KEY : ${{ secrets.API_KEY }}
-      BIN_ID : ${{ secrets.BIN_ID }}
+    env:
+      NEXT_PUBLIC_JSONBIN_API_KEY: ${{ secrets.NEXT_PUBLIC_JSONBIN_API_KEY }}
+      NEXT_PUBLIC_JSONBIN_BIN_ID: ${{ secrets.NEXT_PUBLIC_JSONBIN_BIN_ID }}
 
     steps:
       # Step 1: Checkout source code
